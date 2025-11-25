@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Code Cupid - Find Your Match</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff4da6",
+                        "background-light": "#f8f5f7",
+                        "background-dark": "#240f1a",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+            font-size: 24px;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex h-auto min-h-screen w-full flex-col">
+<!-- TopAppBar -->
+<header class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-10">
+<div class="flex size-12 shrink-0 items-center justify-start">
+<span class="material-symbols-outlined text-white">menu</span>
+</div>
+<h1 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Code💘Cupid</h1>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-white gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-white">filter_list</span>
+</button>
+</div>
+</header>
+<!-- SegmentedButtons -->
+<div class="flex px-4 py-3">
+<div class="flex h-10 flex-1 items-center justify-center rounded-lg bg-[#4b2036] p-1">
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-[#240f1a] has-[:checked]:shadow-[0_0_4px_rgba(0,0,0,0.1)] has-[:checked]:text-white text-[#ce8dad] text-sm font-medium leading-normal">
+<span class="truncate">Cards</span>
+<input checked="" class="invisible w-0" name="view-toggle" type="radio" value="Cards"/>
+</label>
+<label class="flex cursor-pointer h-full grow items-center justify-center overflow-hidden rounded-lg px-2 has-[:checked]:bg-[#240f1a] has-[:checked]:shadow-[0_0_4px_rgba(0,0,0,0.1)] has-[:checked]:text-white text-[#ce8dad] text-sm font-medium leading-normal">
+<span class="truncate">List</span>
+<input class="invisible w-0" name="view-toggle" type="radio" value="List"/>
+</label>
+</div>
+</div>
+<main class="flex flex-col gap-4 p-4">
+<!-- Card View -->
+<div class="relative flex flex-col items-center">
+<!-- Background card 2 -->
+<div class="absolute top-6 w-[85%] h-full bg-[#3a192b] rounded-xl transform rotate-6"></div>
+<!-- Background card 1 -->
+<div class="absolute top-3 w-[92.5%] h-full bg-[#4b2036] rounded-xl transform -rotate-3"></div>
+<!-- Main Profile Card -->
+<div class="relative w-full bg-[#2d2d2d] rounded-xl overflow-hidden flex flex-col shadow-2xl z-0">
+<div class="w-full bg-center bg-no-repeat aspect-square bg-cover" data-alt="Profile photo of a potential match, Alex Doe" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCFvUQIgIhhh_c4pSL6S-2m0tBouXG1bmQ8ZD7gzfUBCWptu7XZoL8dpJY62if8_vxOXUMfejqrKW_Yg4f2eJjrtMrGP24XYzOXIRBnU_FV6EbYTa_-qF17XY8YoOgVSsKRBs23RFubFokpDaTylkGUr0I1OZGLekACdhZO14gWo80ploshMBXSJ050b8AfHZtQP4i4x28mwajeb8-3ClGHlXevtECFopdAUHWg22qDnkXfCY1B2-hrWVttGV_4X-qFK5JzaEKG04A");'></div>
+<div class="flex w-full grow flex-col items-stretch justify-center gap-4 p-4">
+<div class="flex items-baseline gap-2">
+<p class="text-white text-2xl font-bold leading-tight tracking-[-0.015em]">Alex Doe, 28</p>
+</div>
+<p class="text-primary text-base font-normal leading-normal">@alex-doe</p>
+<!-- Chips -->
+<div class="flex gap-2 flex-wrap">
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#4b2036] pl-4 pr-4">
+<p class="text-white text-sm font-medium leading-normal">React</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#4b2036] pl-4 pr-4">
+<p class="text-white text-sm font-medium leading-normal">Python</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#4b2036] pl-4 pr-4">
+<p class="text-white text-sm font-medium leading-normal">Docker</p>
+</div>
+<div class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-[#4b2036] pl-4 pr-4">
+<p class="text-white text-sm font-medium leading-normal">Node.js</p>
+</div>
+</div>
+<!-- ProgressBar -->
+<div class="flex flex-col gap-2 pt-2">
+<div class="flex gap-6 justify-between items-center">
+<p class="text-white text-base font-medium leading-normal">Compatibility</p>
+<p class="text-white text-lg font-bold leading-normal">88%</p>
+</div>
+<div class="rounded-full bg-[#6b2e4d] h-2 w-full"><div class="h-2 rounded-full bg-primary" style="width: 88%;"></div></div>
+</div>
+<!-- Action Buttons -->
+<div class="flex items-center justify-center gap-6 pt-4">
+<button class="flex items-center justify-center h-16 w-16 rounded-full bg-[#4b2036] text-red-400">
+<span class="material-symbols-outlined !text-4xl">close</span>
+</button>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-6 bg-primary text-white text-base font-bold leading-normal">
+<span class="truncate">View Profile</span>
+</button>
+<button class="flex items-center justify-center h-16 w-16 rounded-full bg-[#4b2036] text-primary">
+<span class="material-symbols-outlined !text-4xl">favorite</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- List Item View Example (concept for when List is toggled) -->
+<div class="p-4 @container mt-8 border-t border-t-[#4b2036]">
+<div class="flex flex-col items-stretch justify-start rounded-lg @xl:flex-row @xl:items-start">
+<div class="w-full @xl:w-32 @xl:h-32 bg-center bg-no-repeat aspect-square @xl:aspect-auto bg-cover rounded-lg shrink-0" data-alt="Profile picture of Jane Smith" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuCjWWPH5RR77RiZwCuJgzcfN9a9ztyIIDjymePFJUQe_HNIaClRus4oTioQnw9g3HDdNZAE_5ai7Gk1znBdXqDbHkt2srX-QW8K9UM8tlW5I4eir1twva2mxTadUSXYlcX1yc4tztBzxnyv9FWpXQnoO52d734JQjA8w3yVPW_6gnvSdbYqnazNqI-6EuKb3eMYURUx721ES640yoQuvqvVFfa0l7E3x09SPTaOsWKR1xjcyx6qLgJzx8Aq-gx3w8ZkCloSpD4_gUA");'></div>
+<div class="flex w-full min-w-0 grow flex-col items-stretch justify-center gap-2 py-4 @xl:py-0 @xl:px-4">
+<div class="flex justify-between items-start">
+<div class="flex flex-col">
+<p class="text-white text-lg font-bold leading-tight tracking-[-0.015em]">Jane Smith, 31</p>
+<p class="text-[#ce8dad] text-sm font-normal leading-normal">@jane-dev</p>
+</div>
+<p class="text-primary text-lg font-bold">92%</p>
+</div>
+<div class="flex items-center gap-3 justify-between mt-2">
+<div class="flex gap-2 flex-wrap">
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-2 rounded-md bg-[#4b2036] px-3">
+<p class="text-white text-xs font-medium">JavaScript</p>
+</div>
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-2 rounded-md bg-[#4b2036] px-3">
+<p class="text-white text-xs font-medium">AWS</p>
+</div>
+<div class="flex h-7 shrink-0 items-center justify-center gap-x-2 rounded-md bg-[#4b2036] px-3">
+<p class="text-white text-xs font-medium">Go</p>
+</div>
+</div>
+<button class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-8 px-4 bg-primary text-white text-sm font-medium leading-normal">
+<span class="truncate">View</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</main>
+</div>
+</body></html>

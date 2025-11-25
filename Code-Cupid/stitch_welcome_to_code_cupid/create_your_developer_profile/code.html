@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Code💘Cupid - Create Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings:
+        'FILL' 0,
+        'wght' 400,
+        'GRAD' 0,
+        'opsz' 24
+      }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#ff4da6",
+              "background-light": "#f8f5f7",
+              "background-dark": "#230f19",
+              "brand": {
+                "accent": "#ff4da6",
+                "surface": "#361726",
+                "border": "#6b2e4d",
+                "placeholder": "#ce8dad"
+              }
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display bg-background-light dark:bg-background-dark">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden">
+<!-- Top App Bar -->
+<header class="sticky top-0 z-10 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-sm">
+<div class="flex items-center p-4 pb-2 justify-between">
+<div class="flex size-12 shrink-0 items-center justify-center">
+<span class="material-symbols-outlined text-white text-2xl">arrow_back</span>
+</div>
+<h1 class="text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">Code💘Cupid</h1>
+<div class="flex size-12 shrink-0 items-center"></div>
+</div>
+<div class="flex w-full flex-row items-center justify-center gap-3 py-3">
+<div class="h-1.5 w-1/3 rounded-full bg-primary"></div>
+<div class="h-1.5 w-1/3 rounded-full bg-brand-surface"></div>
+<div class="h-1.5 w-1/3 rounded-full bg-brand-surface"></div>
+</div>
+</header>
+<main class="flex-grow px-4 pb-28">
+<div class="flex flex-col gap-6">
+<!-- Card 1: Basic Info -->
+<div class="bg-brand-surface/50 rounded-xl p-6">
+<div class="flex w-full flex-col items-center gap-4">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 border-2 border-dashed border-brand-border" data-alt="Placeholder for user profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuA6hAqm3Sa5JBW9sBZCBUgfWkPueX1PA60AxmnZ3IlzQlN9Tvys6c7QsiwPynn-Ouo595Yh76pcMwQHK8eawYcrADRhhmT_aioDEnSqDALh4VDC5TP_gg0rMJGcbi1GY7CV9SOP4Tydjn3_vZ5YDwgxnmMEdPtvvibBWWRMqlaJJ7komLWwW9BsNd_pUu2AeFyP4PBpjsmXJA2o3nzPsv68yTl81258ujTntJrl8V8iPrZHDN1byB1G7DhhEzHSgkhT4NXKorzzQUM");'></div>
+<button class="absolute bottom-0 right-0 flex h-10 w-10 cursor-pointer items-center justify-center overflow-hidden rounded-full bg-primary text-white">
+<span class="material-symbols-outlined">add_a_photo</span>
+</button>
+</div>
+<p class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] text-center">Jessica Miller</p>
+</div>
+<div class="mt-6 space-y-4">
+<label class="flex flex-col">
+<p class="text-white text-base font-medium leading-normal pb-2">Name</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-brand-border bg-brand-surface focus:border-primary h-14 placeholder:text-brand-placeholder p-[15px] text-base font-normal leading-normal" placeholder="Enter your name" value="Jessica Miller"/>
+</label>
+<label class="flex flex-col">
+<p class="text-white text-base font-medium leading-normal pb-2">Email</p>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-brand-border bg-brand-surface focus:border-primary h-14 placeholder:text-brand-placeholder p-[15px] text-base font-normal leading-normal" placeholder="Enter your email address" type="email" value="jess.codes@email.com"/>
+</label>
+<label class="flex flex-col">
+<p class="text-white text-base font-medium leading-normal pb-2">GitHub Username</p>
+<div class="relative flex items-center">
+<span class="material-symbols-outlined absolute left-4 text-brand-placeholder">link</span>
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-2 focus:ring-primary border border-brand-border bg-brand-surface focus:border-primary h-14 placeholder:text-brand-placeholder pl-12 pr-4 py-3 text-base font-normal leading-normal" placeholder="Your GitHub handle" value="jess-the-dev"/>
+</div>
+</label>
+</div>
+</div>
+<!-- Card 2: Identity & Preferences -->
+<div class="bg-brand-surface/50 rounded-xl p-6">
+<div class="space-y-6">
+<div>
+<p class="text-white text-base font-medium leading-normal pb-3">Gender</p>
+<div class="grid grid-cols-3 gap-2 rounded-lg bg-brand-surface p-1">
+<button class="flex items-center justify-center rounded-md py-2 text-sm font-semibold text-white/70 hover:bg-white/10">Male</button>
+<button class="flex items-center justify-center rounded-md py-2 text-sm font-semibold text-white bg-primary">Female</button>
+<button class="flex items-center justify-center rounded-md py-2 text-sm font-semibold text-white/70 hover:bg-white/10">Other</button>
+</div>
+</div>
+<div>
+<p class="text-white text-base font-medium leading-normal pb-2">I'm looking for...</p>
+<div class="relative">
+<select class="form-select w-full appearance-none rounded-lg border border-brand-border bg-brand-surface h-14 px-4 pr-10 text-base text-white focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary">
+<option>Frontend Dev</option>
+<option>Backend Dev</option>
+<option>Full-Stack Dev</option>
+<option>DevOps Engineer</option>
+<option>Data Scientist</option>
+</select>
+<span class="material-symbols-outlined pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-brand-placeholder">expand_more</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Card 3: Tech Stack -->
+<div class="bg-brand-surface/50 rounded-xl p-6">
+<div class="space-y-6">
+<div>
+<p class="text-white text-base font-medium leading-normal pb-3">Favorite Frameworks</p>
+<div class="flex flex-wrap gap-2">
+<button class="flex items-center gap-1 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-white">React <span class="material-symbols-outlined text-base">check_circle</span></button>
+<button class="flex items-center gap-1 rounded-full border border-brand-border px-4 py-2 text-sm font-medium text-brand-placeholder hover:border-primary hover:text-white">Vue.js</button>
+<button class="flex items-center gap-1 rounded-full border border-brand-border px-4 py-2 text-sm font-medium text-brand-placeholder hover:border-primary hover:text-white">Angular</button>
+<button class="flex items-center gap-1 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-white">Svelte <span class="material-symbols-outlined text-base">check_circle</span></button>
+<button class="flex items-center gap-1 rounded-full border border-brand-border px-4 py-2 text-sm font-medium text-brand-placeholder hover:border-primary hover:text-white">Next.js</button>
+</div>
+</div>
+<div>
+<p class="text-white text-base font-medium leading-normal pb-3">Programming Languages</p>
+<div class="flex flex-wrap gap-2">
+<button class="flex items-center gap-1 rounded-full border border-brand-border px-4 py-2 text-sm font-medium text-brand-placeholder hover:border-primary hover:text-white">Python</button>
+<button class="flex items-center gap-1 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-white">JavaScript <span class="material-symbols-outlined text-base">check_circle</span></button>
+<button class="flex items-center gap-1 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-white">TypeScript <span class="material-symbols-outlined text-base">check_circle</span></button>
+<button class="flex items-center gap-1 rounded-full border border-brand-border px-4 py-2 text-sm font-medium text-brand-placeholder hover:border-primary hover:text-white">Rust</button>
+<button class="flex items-center gap-1 rounded-full border border-brand-border px-4 py-2 text-sm font-medium text-brand-placeholder hover:border-primary hover:text-white">Go</button>
+</div>
+</div>
+<div>
+<p class="text-white text-base font-medium leading-normal pb-3">Tools You Love</p>
+<div class="flex flex-wrap gap-2">
+<button class="flex items-center gap-1 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-white">VS Code <span class="material-symbols-outlined text-base">check_circle</span></button>
+<button class="flex items-center gap-1 rounded-full border border-brand-border px-4 py-2 text-sm font-medium text-brand-placeholder hover:border-primary hover:text-white">Docker</button>
+<button class="flex items-center gap-1 rounded-full border border-primary bg-primary px-4 py-2 text-sm font-medium text-white">Figma <span class="material-symbols-outlined text-base">check_circle</span></button>
+<button class="flex items-center gap-1 rounded-full border border-brand-border px-4 py-2 text-sm font-medium text-brand-placeholder hover:border-primary hover:text-white">Vim</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action Button -->
+<footer class="fixed bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-background-dark to-transparent">
+<button class="w-full flex items-center justify-center gap-2 rounded-xl bg-primary h-14 px-6 text-white text-lg font-bold shadow-lg shadow-primary/20 hover:bg-primary/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-background-dark focus:ring-primary">
+                Save &amp; Continue
+                <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</footer>
+</div>
+</body></html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>User Profile - CodeCupid</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@400" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#ff4da6",
+                        "background-light": "#f8f5f7",
+                        "background-dark": "#230f19",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            font-size: inherit;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display">
+<div class="relative flex min-h-screen w-full flex-col group/design-root overflow-x-hidden pb-24">
+<!-- TopAppBar -->
+<header class="sticky top-0 z-10 flex h-14 items-center justify-between bg-background-light/80 px-4 backdrop-blur-sm dark:bg-background-dark/80">
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-zinc-700 transition-colors hover:bg-zinc-200 dark:text-zinc-300 dark:hover:bg-white/10">
+<span class="material-symbols-outlined text-2xl">arrow_back</span>
+</button>
+<h1 class="text-lg font-bold text-zinc-900 dark:text-zinc-100">Profile</h1>
+<button class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full text-zinc-700 transition-colors hover:bg-zinc-200 dark:text-zinc-300 dark:hover:bg-white/10">
+<span class="material-symbols-outlined text-2xl">more_vert</span>
+</button>
+</header>
+<main class="flex flex-col gap-6 px-4 pt-4">
+<!-- ProfileHeader -->
+<section class="flex flex-col items-center gap-4 text-center">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full h-32 w-32 border-2 border-white/20 shadow-lg" data-alt="Profile picture of Alex" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDiKS6_h9KuCNaMDcSzeMtmT_Y-QIh_IbvQ8iJn9WzHTONdnsU2UwIRg7bUDUgf4ypKjyWtA7knY3m5mjMZ-DCkDSGLdNOhYq_xjSmQhyk62TvfkaW7TEbrLUR4ZLkI-p8YUT8WrnWYHj3jwq1Nk8ufaGuqL0XLAK90-iPmF9b5gvrXVvV15U1F5omUridsqQ0ETlWA2E0qZ6ZQ3fMhlGh8jaohPcj7zLCpLrlKRONBe4fHa47q6fZw7WYrodprSLbOqX0Snk_8nF4");'></div>
+<div class="flex flex-col items-center justify-center gap-1">
+<p class="text-zinc-900 dark:text-zinc-50 text-[22px] font-bold leading-tight tracking-[-0.015em]">Alex, 28</p>
+<div class="flex items-center gap-1.5 text-zinc-600 dark:text-zinc-400">
+<span class="material-symbols-outlined text-base">location_on</span>
+<p class="text-base font-normal leading-normal">San Francisco, CA</p>
+</div>
+</div>
+<!-- GitHub Badge -->
+<a class="flex items-center gap-2 rounded-lg bg-zinc-200 px-4 py-2 text-sm font-semibold text-zinc-800 transition-transform duration-200 ease-in-out hover:scale-105 dark:bg-white/10 dark:text-zinc-200" href="#">
+<svg aria-hidden="true" class="size-5" fill="currentColor" viewbox="0 0 16 16"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.19.01-.82.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.28.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21-.15.46-.55.38A8.013 8.013 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+<span>alexdev</span>
+</a>
+</section>
+<!-- About Me Card -->
+<div class="flex w-full flex-col gap-3 rounded-xl bg-white/5 p-4 ring-1 ring-white/10">
+<h2 class="text-zinc-900 dark:text-zinc-50 text-lg font-bold leading-tight">About Me</h2>
+<p class="text-zinc-600 dark:text-zinc-300 text-base font-normal leading-normal">
+                    Full-stack developer with a passion for open-source projects and a good cup of coffee. When I'm not coding, you can find me hiking in Marin or trying out new brunch spots in the city. Looking for someone to pair-program life with.
+                </p>
+</div>
+<!-- Tech Stack Card -->
+<div class="flex w-full flex-col gap-4 rounded-xl bg-white/5 p-4 ring-1 ring-white/10">
+<h2 class="text-zinc-900 dark:text-zinc-50 text-lg font-bold leading-tight">My Tech Stack</h2>
+<div class="flex flex-col gap-4">
+<div>
+<h3 class="mb-2 text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Languages</h3>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">JavaScript</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">TypeScript</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">Python</span>
+</div>
+</div>
+<div>
+<h3 class="mb-2 text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Frameworks</h3>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">React</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">Next.js</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">Django</span>
+</div>
+</div>
+<div>
+<h3 class="mb-2 text-sm font-semibold uppercase tracking-wider text-zinc-500 dark:text-zinc-400">Tools</h3>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">Docker</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">VS Code</span>
+<span class="rounded-full bg-primary/20 px-3 py-1 text-sm font-medium text-primary">Figma</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Work Style Card -->
+<div class="flex w-full flex-col gap-3 rounded-xl bg-white/5 p-4 ring-1 ring-white/10">
+<h2 class="text-zinc-900 dark:text-zinc-50 text-lg font-bold leading-tight">How I Work</h2>
+<div class="flex flex-wrap gap-2">
+<span class="rounded-full bg-zinc-200 px-3 py-1 text-sm font-medium text-zinc-800 dark:bg-white/10 dark:text-zinc-200">Pair Programming</span>
+<span class="rounded-full bg-zinc-200 px-3 py-1 text-sm font-medium text-zinc-800 dark:bg-white/10 dark:text-zinc-200">Agile</span>
+<span class="rounded-full bg-zinc-200 px-3 py-1 text-sm font-medium text-zinc-800 dark:bg-white/10 dark:text-zinc-200">Remote-first</span>
+<span class="rounded-full bg-zinc-200 px-3 py-1 text-sm font-medium text-zinc-800 dark:bg-white/10 dark:text-zinc-200">Side Projects</span>
+</div>
+</div>
+</main>
+<!-- Primary Action Button -->
+<div class="fixed bottom-0 left-0 right-0 z-10 bg-gradient-to-t from-background-light via-background-light to-transparent p-4 pt-8 dark:from-background-dark dark:via-background-dark">
+<button class="flex w-full min-w-[84px] cursor-pointer items-center justify-center gap-2 overflow-hidden rounded-xl h-14 bg-primary text-base font-bold text-white shadow-lg shadow-primary/30 transition-transform duration-200 ease-in-out hover:scale-105 active:scale-95">
+<span class="material-symbols-outlined text-xl">terminal</span>
+<span class="truncate">Send a Challenge</span>
+</button>
+</div>
+</div>
+</body></html>

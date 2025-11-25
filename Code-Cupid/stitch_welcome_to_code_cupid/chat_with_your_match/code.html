@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Code💘Cupid Chat</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings:
+            'FILL' 0,
+            'wght' 400,
+            'GRAD' 0,
+            'opsz' 24;
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#F92672",
+              "background-light": "#f6f5f8",
+              "background-dark": "#1E1E1E",
+              "bubble-self": "#2D2D2D",
+              "bubble-match": "#3A3D5D",
+              "text-primary": "#D4D4D4",
+              "syntax-green": "#A6E22E",
+              "syntax-cyan": "#66D9EF",
+              "syntax-purple": "#AE81FF",
+            },
+            fontFamily: {
+              "display": ["Space Grotesk", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="font-display">
+<div class="relative flex h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-hidden">
+<!-- Top App Bar -->
+<div class="flex items-center bg-background-light dark:bg-background-dark p-4 shadow-md z-10">
+<div class="flex size-12 shrink-0 items-center">
+<div class="relative">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10" data-alt="Ada Lovelace profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDBQk2N4sd_vpVovu25OlCe-yiYyIRize2j6y3zajIVeGLr6d7mxy10JKipiDQfKatzzgAWTPDEdAP-3Fd8GIIkQwdVpzjMbaVYJY9vUEyvPXzBrtb6b8yFXfhhFketk00vBzNCA4983IneIH-_tTQ-W86H4Y7beCWmmgNkUZXUqJyVf6Vb4T5PxORvS7goIr5ApGRoV-UjPKGU1QTYE3Dh5IIhjOAxf5z6ffvkgAq9FM4Dh3x8Hdpg3uO24DG2CiHfwU-wpAUb_2w");'></div>
+<div class="absolute bottom-0 right-0 size-3 rounded-full bg-[#A6E22E] border-2 border-[#1E1E1E]"></div>
+</div>
+</div>
+<div class="flex-1 ml-2">
+<h2 class="text-text-primary text-lg font-bold leading-tight tracking-[-0.015em]">Ada Lovelace</h2>
+<p class="text-syntax-green text-xs">Online</p>
+</div>
+<div class="flex w-12 items-center justify-end">
+<button class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 bg-transparent text-text-primary gap-2 text-base font-bold leading-normal tracking-[0.015em] min-w-0 p-0">
+<span class="material-symbols-outlined text-text-primary">more_vert</span>
+</button>
+</div>
+</div>
+<!-- Message List Area -->
+<div class="flex-1 overflow-y-auto p-4 space-y-6">
+<!-- Date Separator -->
+<div class="text-center">
+<span class="text-sm text-gray-500 font-medium bg-bubble-self px-3 py-1 rounded-full">Today</span>
+</div>
+<!-- Match's Message -->
+<div class="flex items-end gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0 self-end mb-1" data-alt="Ada Lovelace's profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuBhvMTm0IubtWmfXk-ghLs42RAxNrk-alHhE6AsY5YsjscUHO642UH4kmcqrssUvROdp1kMu95fpZzlZIcjka9qPm4uyBIABh5hTZ724iZ1bzmFbmHrhBCDC_feRaZx8w6ZFIHQOpacASjMSWy9gqmahRra6Xc408_9EmwVFAa6LagtaJw8EcgB6Q3KGE3tjRBYWMjMqjM4JgekEa7YpBWO59IQHgsB0bl8yc_1JLRGoQIozS-885hlxNmfT2GMzh5CXCUlehhER5c");'></div>
+<div class="flex flex-1 flex-col gap-1 items-start">
+<div class="text-base font-normal leading-normal flex max-w-[360px] rounded-lg p-3 bg-bubble-match text-text-primary shadow-sm">
+<p><span class="text-syntax-cyan">const</span> <span class="text-syntax-purple">greeting</span> = <span class="text-syntax-green">"Hey! Loved your profile."</span>;</p>
+</div>
+</div>
+</div>
+<!-- Your Message -->
+<div class="flex items-end gap-3 justify-end">
+<div class="flex flex-1 flex-col gap-1 items-end">
+<div class="text-base font-normal leading-normal flex max-w-[360px] rounded-lg p-3 bg-bubble-self text-text-primary shadow-sm">
+<p><span class="text-syntax-green">"Haha, thanks! You've got some impressive repos yourself."</span></p>
+</div>
+</div>
+</div>
+<!-- Match's Message with Threaded Reply -->
+<div class="flex items-end gap-3">
+<div class="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-8 shrink-0 self-end mb-1" data-alt="Ada Lovelace's profile picture" style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuASLaVnbXfvXf8LTIG5uYqkEL0LiIovmwFC3jozSr-7VKFzd9T2DcDMsFqjku-rNLnnu5bLw0KXUZKF-5LLFKOe-7XufM9R8pyA64khQt7AbUrdcSiegT7PyMjimMTwtnikGY37CFjyOLm2QcrP3w71ZdFlfG5ZsVY4UCLmVfCHhzMHY3-rOoY0HIujDDMEGbEX-6k8b88C8RixVymImZVN49ihoHCJi8MEN_YjIAcz62E4xacAy_KneCS_lpnyU4DPB6kOglM6sgY");'></div>
+<div class="flex flex-1 flex-col gap-1 items-start">
+<div class="text-base font-normal leading-normal flex flex-col max-w-[360px] rounded-lg p-3 bg-bubble-match text-text-primary shadow-sm">
+<!-- Quoted Reply -->
+<div class="border-l-2 border-primary pl-2 mb-2 opacity-60">
+<p class="text-xs font-medium text-text-primary">You</p>
+<p class="text-xs text-text-primary truncate">"...impressive repos yourself."</p>
+</div>
+<p><span class="text-syntax-cyan">let</span> <span class="text-syntax-purple">question</span> = <span class="text-syntax-green">"What's your favorite algorithm and why?"</span>;</p>
+</div>
+</div>
+</div>
+<!-- Your Message with Code Snippet -->
+<div class="flex items-end gap-3 justify-end">
+<div class="flex flex-1 flex-col gap-1 items-end">
+<div class="text-base font-normal leading-normal flex max-w-[360px] rounded-lg p-3 bg-bubble-self text-text-primary shadow-sm">
+<p><span class="text-syntax-green">"Dijkstra's, for its elegant simplicity. Here’s a quick Python implementation:"</span></p>
+</div>
+<div class="flex flex-col max-w-[360px] w-full items-start rounded-lg bg-bubble-self text-sm mt-1 shadow-sm">
+<div class="flex justify-between items-center w-full bg-black/20 px-3 py-1.5 rounded-t-lg">
+<span class="text-xs text-syntax-cyan font-medium">javascript</span>
+<button class="flex items-center gap-1 text-text-primary/70 hover:text-text-primary transition-colors">
+<span class="material-symbols-outlined !text-base">content_copy</span>
+<span class="text-xs">copy code</span>
+</button>
+</div>
+<pre class="p-3 text-left overflow-x-auto w-full"><code class="text-xs">function dijkstra(graph, start) {
+  // implementation...
+  return distances;
+}</code></pre>
+</div>
+</div>
+</div>
+<!-- System Message -->
+<div class="flex justify-center items-center gap-2 my-4">
+<span class="material-symbols-outlined text-primary !text-xl">emoji_events</span>
+<p class="text-sm text-primary font-semibold">New Coding Challenge Started!</p>
+</div>
+</div>
+<!-- Composer / Chat Input Bar -->
+<div class="flex items-center px-4 py-3 gap-3 bg-background-light dark:bg-background-dark border-t border-white/10">
+<button class="flex items-center justify-center size-10 text-text-primary/70 hover:text-text-primary transition-colors shrink-0">
+<span class="material-symbols-outlined">code_blocks</span>
+</button>
+<label class="flex flex-col min-w-40 h-12 flex-1">
+<div class="flex w-full flex-1 items-stretch rounded-lg h-full">
+<input class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-text-primary focus:outline-0 focus:ring-2 focus:ring-primary/50 border-none bg-bubble-self h-full placeholder:text-text-primary/50 px-4 text-base font-normal leading-normal" placeholder="// Type your message..." value=""/>
+</div>
+</label>
+<button class="flex items-center justify-center size-10 text-text-primary/70 hover:text-text-primary transition-colors shrink-0">
+<span class="material-symbols-outlined">emoji_events</span>
+</button>
+<button class="min-w-[48px] cursor-pointer items-center justify-center overflow-hidden rounded-lg size-12 bg-primary text-white text-sm font-medium leading-normal flex shrink-0">
+<span class="material-symbols-outlined">send</span>
+</button>
+</div>
+</div>
+</body></html>
