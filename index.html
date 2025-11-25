@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>CodeCupid – Cycle 1 Challenge Flow</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Roboto+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#ff4da6",
+              surface: "#1d1b26",
+              surfaceAlt: "#241f32",
+              success: "#6fe3c3",
+              error: "#ff7aa2",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+              mono: ["Roboto Mono", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        background: radial-gradient(circle at top, #2c1f3b, #0f0b17 60%);
+        min-height: 100vh;
+      }
+      .glass-panel {
+        background: rgba(29, 27, 38, 0.8);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 20px 60px rgba(15, 11, 23, 0.6);
+      }
+    </style>
+  </head>
+  <body class="text-gray-100">
+    <div class="mx-auto flex max-w-6xl flex-col gap-8 px-4 py-10">
+      <header class="flex flex-col gap-2 text-center">
+        <p class="text-sm uppercase tracking-[0.3em] text-primary">
+          Cycle 1 · Interaction Gate
+        </p>
+        <h1 class="text-3xl font-bold">Create · Attempt · Unlock Messaging</h1>
+        <p class="text-base text-gray-400">
+          Implements HAT-10 (challenge authoring), HAT-11 (challenge preview),
+          and HAT-14 (unlock chat after success).
+        </p>
+      </header>
+
+      <main class="grid gap-6 md:grid-cols-2">
+        <!-- Challenge authoring panel -->
+        <section class="glass-panel rounded-2xl p-6 backdrop-blur">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm uppercase tracking-[0.4em] text-gray-400">
+                Creator Mode
+              </p>
+              <h2 class="text-2xl font-semibold">Post your gate</h2>
+            </div>
+            <span
+              class="material-symbols-outlined text-4xl text-primary"
+              aria-hidden="true"
+              >lock</span
+            >
+          </div>
+          <form id="challengeForm" class="mt-6 flex flex-col gap-4">
+            <label class="text-sm font-semibold text-gray-300"
+              >Challenge title
+              <input
+                required
+                type="text"
+                name="title"
+                class="mt-1 rounded-lg border border-white/10 bg-surfaceAlt/60 px-3 py-2 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary"
+                placeholder="Binary Search Love Letter"
+              />
+            </label>
+            <label class="text-sm font-semibold text-gray-300"
+              >Difficulty
+              <select
+                name="difficulty"
+                class="mt-1 rounded-lg border border-white/10 bg-surfaceAlt/60 px-3 py-2 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary"
+              >
+                <option>Easy</option>
+                <option>Medium</option>
+                <option>Hard</option>
+              </select>
+            </label>
+            <label class="text-sm font-semibold text-gray-300"
+              >Problem statement
+              <textarea
+                required
+                name="prompt"
+                rows="4"
+                class="mt-1 rounded-lg border border-white/10 bg-surfaceAlt/60 px-3 py-2 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary"
+                placeholder="Describe the challenge they must solve"
+              ></textarea>
+            </label>
+            <div class="grid gap-4 md:grid-cols-2">
+              <label class="text-sm font-semibold text-gray-300"
+                >Input spec
+                <input
+                  required
+                  type="text"
+                  name="inputSpec"
+                  class="mt-1 rounded-lg border border-white/10 bg-surfaceAlt/60 px-3 py-2 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary"
+                  placeholder="e.g. string message"
+                />
+              </label>
+              <label class="text-sm font-semibold text-gray-300"
+                >Output spec
+                <input
+                  required
+                  type="text"
+                  name="outputSpec"
+                  class="mt-1 rounded-lg border border-white/10 bg-surfaceAlt/60 px-3 py-2 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary"
+                  placeholder="e.g. boolean"
+                />
+              </label>
+            </div>
+            <label class="text-sm font-semibold text-gray-300"
+              >Sample tests (one per line: input => expected)
+              <textarea
+                required
+                name="tests"
+                rows="4"
+                class="mt-1 rounded-lg border border-white/10 bg-surfaceAlt/60 px-3 py-2 text-sm text-white focus:border-primary focus:ring-1 focus:ring-primary"
+                placeholder="3 => Fizz&#10;5 => Buzz"
+              ></textarea>
+            </label>
+            <button
+              class="mt-2 flex h-12 items-center justify-center rounded-xl bg-primary/90 font-semibold text-white shadow-lg shadow-primary/50 transition hover:bg-primary"
+              type="submit"
+            >
+              Publish challenge
+            </button>
+            <p
+              id="creatorNotice"
+              class="text-sm font-medium text-success opacity-0 transition"
+            >
+              Challenge saved. Prospects now see the updated gate.
+            </p>
+          </form>
+        </section>
+
+        <!-- Prospect experience -->
+        <section class="glass-panel rounded-2xl p-6 backdrop-blur">
+          <div class="flex items-center justify-between">
+            <div>
+              <p class="text-sm uppercase tracking-[0.4em] text-gray-400">
+                Prospect Mode
+              </p>
+              <h2 class="text-2xl font-semibold">Solve to connect</h2>
+            </div>
+            <span
+              class="material-symbols-outlined text-4xl text-success"
+              aria-hidden="true"
+              >terminal</span
+            >
+          </div>
+
+          <article class="mt-6 flex flex-col gap-3 rounded-xl border border-white/5 bg-surfaceAlt/40 p-4">
+            <div class="flex items-center justify-between">
+              <div>
+                <p class="text-xs uppercase tracking-[0.4em] text-gray-500">
+                  Required challenge
+                </p>
+                <h3 id="challengeTitle" class="text-xl font-semibold"></h3>
+              </div>
+              <span
+                id="challengeDifficulty"
+                class="rounded-full border border-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-gray-300"
+              ></span>
+            </div>
+            <p id="challengePrompt" class="text-sm text-gray-300"></p>
+            <p class="text-xs text-gray-400">
+              Input: <span id="challengeInputSpec"></span> · Output:
+              <span id="challengeOutputSpec"></span>
+            </p>
+          </article>
+
+          <label class="mt-6 text-sm font-semibold text-gray-300"
+            >Your solution (define function <code>solve</code>)
+            <textarea
+              id="codeEditor"
+              rows="10"
+              class="font-mono mt-2 rounded-lg border border-white/10 bg-black/40 px-3 py-2 text-sm text-gray-100 focus:border-primary focus:ring-1 focus:ring-primary"
+            >function solve(input) {
+  // write your logic
+  return input;
+}</textarea
+            >
+          </label>
+
+          <div class="mt-4 flex flex-col gap-3">
+            <button
+              id="runTestsButton"
+              class="flex h-12 items-center justify-center gap-2 rounded-xl border border-white/10 bg-white/5 font-semibold text-white transition hover:border-primary hover:bg-primary/20"
+              type="button"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >play_arrow</span
+              >
+              Run tests
+            </button>
+            <div id="testResults" class="space-y-2 text-sm text-gray-300"></div>
+            <button
+              id="unlockButton"
+              class="flex h-12 items-center justify-center gap-2 rounded-xl bg-gray-600/70 font-semibold text-gray-300 transition disabled:cursor-not-allowed"
+              disabled
+              type="button"
+            >
+              <span class="material-symbols-outlined" aria-hidden="true"
+                >lock</span
+              >
+              Unlock messaging
+            </button>
+            <div
+              id="chatPanel"
+              class="hidden flex-col gap-3 rounded-2xl border border-success/30 bg-success/10 p-4"
+            >
+              <div class="flex items-center gap-3">
+                <div
+                  class="h-12 w-12 rounded-full bg-success/20 text-xl font-bold text-success/90 flex items-center justify-center"
+                >
+                  SC
+                </div>
+                <div>
+                  <p class="text-sm uppercase tracking-[0.4em] text-success">
+                    Chat unlocked
+                  </p>
+                  <p class="text-lg font-semibold text-white">Sarah · React</p>
+                </div>
+              </div>
+              <textarea
+                class="rounded-xl border border-success/40 bg-black/30 px-3 py-2 text-sm text-white placeholder:text-success/60 focus:border-success focus:ring-1 focus:ring-success"
+                placeholder="Break the ice with a code compliment..."
+              ></textarea>
+              <button
+                class="flex h-10 items-center justify-center rounded-xl bg-success/90 font-semibold text-black transition hover:bg-success"
+                type="button"
+              >
+                Send message
+              </button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script>
+      const form = document.getElementById("challengeForm");
+      const notice = document.getElementById("creatorNotice");
+      const runButton = document.getElementById("runTestsButton");
+      const unlockButton = document.getElementById("unlockButton");
+      const chatPanel = document.getElementById("chatPanel");
+      const editor = document.getElementById("codeEditor");
+      const resultsEl = document.getElementById("testResults");
+
+      const fields = {
+        title: document.getElementById("challengeTitle"),
+        difficulty: document.getElementById("challengeDifficulty"),
+        prompt: document.getElementById("challengePrompt"),
+        inputSpec: document.getElementById("challengeInputSpec"),
+        outputSpec: document.getElementById("challengeOutputSpec"),
+      };
+
+      const defaultChallenge = {
+        title: "FizzBuzz Gauntlet",
+        difficulty: "Easy",
+        prompt:
+          "Given an integer, return Fizz if div by 3, Buzz if div by 5, FizzBuzz if both, otherwise return the number.",
+        inputSpec: "integer n",
+        outputSpec: "string",
+        tests: [
+          { input: 3, expected: "Fizz" },
+          { input: 5, expected: "Buzz" },
+          { input: 15, expected: "FizzBuzz" },
+          { input: 7, expected: 7 },
+        ],
+      };
+
+      const storageKey = "codecupid.challenge";
+
+      const loadChallenge = () => {
+        try {
+          const saved = localStorage.getItem(storageKey);
+          return saved ? JSON.parse(saved) : defaultChallenge;
+        } catch (error) {
+          console.warn("bad challenge payload", error);
+          return defaultChallenge;
+        }
+      };
+
+      let challenge = loadChallenge();
+
+      const renderChallenge = () => {
+        fields.title.textContent = challenge.title;
+        fields.difficulty.textContent = challenge.difficulty;
+        fields.prompt.textContent = challenge.prompt;
+        fields.inputSpec.textContent = challenge.inputSpec;
+        fields.outputSpec.textContent = challenge.outputSpec;
+      };
+
+      const parseTests = (raw) => {
+        return raw
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean)
+          .map((line) => {
+            const [input, expected] = line.split("=>").map((val) => val.trim());
+            return {
+              input: JSON.parse(input),
+              expected: JSON.parse(expected),
+            };
+          });
+      };
+
+      form.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        const formData = new FormData(form);
+        try {
+          const tests = parseTests(formData.get("tests"));
+          challenge = {
+            title: formData.get("title"),
+            difficulty: formData.get("difficulty"),
+            prompt: formData.get("prompt"),
+            inputSpec: formData.get("inputSpec"),
+            outputSpec: formData.get("outputSpec"),
+            tests,
+          };
+          localStorage.setItem(storageKey, JSON.stringify(challenge));
+          renderChallenge();
+          notice.style.opacity = 1;
+          setTimeout(() => (notice.style.opacity = 0), 2400);
+        } catch (error) {
+          alert("Invalid test definition. Use JSON friendly values.");
+          console.error(error);
+        }
+      });
+
+      const runTests = () => {
+        unlockButton.disabled = true;
+        unlockButton.innerHTML =
+          '<span class="material-symbols-outlined">lock</span>Unlock messaging';
+        chatPanel.classList.add("hidden");
+        resultsEl.innerHTML = "";
+
+        let solver;
+        try {
+          // Build a callable solve() wrapper.
+          const userCode = editor.value;
+          solver = new Function(
+            `"use strict";${userCode}; return solve(arguments[0]);`
+          );
+        } catch (error) {
+          resultsEl.innerHTML = `<p class="text-error">Compilation error: ${error.message}</p>`;
+          return;
+        }
+
+        const summary = [];
+        let passedAll = true;
+
+        challenge.tests.forEach((test, idx) => {
+          try {
+            const output = solver(test.input);
+            const passed =
+              JSON.stringify(output) === JSON.stringify(test.expected);
+            summary.push({
+              label: `Test ${idx + 1}: input ${JSON.stringify(test.input)}`,
+              passed,
+              details: `Expected ${JSON.stringify(
+                test.expected
+              )}, received ${JSON.stringify(output)}`,
+            });
+            if (!passed) {
+              passedAll = false;
+            }
+          } catch (error) {
+            passedAll = false;
+            summary.push({
+              label: `Test ${idx + 1}: runtime error`,
+              passed: false,
+              details: error.message,
+            });
+          }
+        });
+
+        resultsEl.innerHTML = summary
+          .map(
+            (item) => `
+            <div class="rounded-lg border px-3 py-2 ${
+              item.passed ? "border-success/40" : "border-error/40"
+            }">
+              <p class="font-semibold ${
+                item.passed ? "text-success" : "text-error"
+              }">${item.label}</p>
+              <p class="text-xs text-gray-400">${item.details}</p>
+            </div>
+          `
+          )
+          .join("");
+
+        if (passedAll) {
+          unlockButton.disabled = false;
+          unlockButton.innerHTML =
+            '<span class="material-symbols-outlined">lock_open</span>Messaging unlocked';
+          chatPanel.classList.remove("hidden");
+        }
+      };
+
+      runButton.addEventListener("click", runTests);
+      unlockButton.addEventListener("click", () =>
+        chatPanel.classList.remove("hidden")
+      );
+
+      renderChallenge();
+    </script>
+  </body>
+</html>
